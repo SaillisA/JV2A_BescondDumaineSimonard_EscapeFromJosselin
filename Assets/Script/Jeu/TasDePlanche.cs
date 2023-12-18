@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pnj : MonoBehaviour
+public class TasDePlanche : MonoBehaviour
 {
-    public string nomPnj;
-    public GameObject objet;
 
+    public Inventaire barreInventaire;
+    public int planchesNecessaires = 3;             //le joueur doit emmener 3 planches;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +19,8 @@ public class Pnj : MonoBehaviour
         
     }
 
-    public void pnjToucher()
+    public void DeposerPlanches()
     {
-        Debug.Log("bonjour je suis un pnj hihi");
+        Debug.Log("je pose des planches");
     }
 }

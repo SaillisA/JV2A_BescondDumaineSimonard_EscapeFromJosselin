@@ -12,11 +12,13 @@ public class Joueur : MonoBehaviour
 
 
     public LayerMask maskObjet;
-    public LayerMask maskPNJ;
+    public LayerMask maskPierre;
+    public LayerMask maskOuvrier;
     public LayerMask maskArbre;
+    public LayerMask maskTasDePlanches;
     public Camera myCamera;
 
-    public Objets hache;
+    public PnjPierre hacheBool;
     void Start()
     {
         //controller = GetComponent<CharacterController>();   
@@ -60,14 +62,26 @@ public class Joueur : MonoBehaviour
                 infoObjet.transform.GetComponent<Objets>().testTosTest();
             }
 
-            if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoPNJ, 1000000, maskPNJ))
+            if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoPierre, 1000000, maskPierre))
             {
-                infoPNJ.transform.GetComponent<PnjPierre>().parlerPNJ();
+                infoPierre.transform.GetComponent<PnjPierre>().parlerPNJ();
             }
 
-            if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoArbre, 1000000, maskPNJ) && hache.objetPosseder == true )
+            if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoOuvrier, 1000000, maskOuvrier))
             {
-                infoPNJ.transform.GetComponent<Arbre>().couperBois();
+                infoOuvrier.transform.GetComponent<PnjOuvrier>().ParlerOuvrier();
+            }
+
+            if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoArbre, 1000000, maskArbre) && hacheBool.hacheDonner == true )
+            {
+                Debug.Log("test toucher arbre");
+                infoArbre.transform.GetComponent<Arbre>().couperBois();
+            }
+
+            if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoTasPlanche, 1000000, maskTasDePlanches) && hacheBool.hacheDonner == true)
+            {
+                Debug.Log("test toucher planche");
+                infoTasPlanche.transform.GetComponent<TasDePlanche>().DeposerPlanches();
             }
         }
 

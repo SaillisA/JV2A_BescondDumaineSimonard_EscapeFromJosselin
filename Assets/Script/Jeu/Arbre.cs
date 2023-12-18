@@ -23,7 +23,7 @@ public class Arbre : MonoBehaviour
     {
         if (arbreMort == false)
         {
-            Debug.Log("tiens la hache hihihihihi");
+            Debug.Log("coupe du bois");
             if (barreInventaire.VerificationEtAjout(planche.nomObjet, planche.objetSprite, planche.prefabObjet) == true)
             {
                 planche.objetPosseder = true;
