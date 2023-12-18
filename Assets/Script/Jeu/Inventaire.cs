@@ -9,6 +9,12 @@ public class Inventaire : MonoBehaviour
     public bool objetEnMain = false;
     public GameObject objetTenus;
     public GameObject mainJoueur;
+    public GameObject objectPrefabSlot0;             //le prefab qui sera affiché en main
+    public GameObject objectPrefabSlot1;
+    public GameObject objectPrefabSlot2;
+    public GameObject objectPrefabSlot3;
+
+
     //lesSlots
     public Image boutonSlot0;
     public Image boutonSlot1;
@@ -24,13 +30,7 @@ public class Inventaire : MonoBehaviour
     //list pour verifier les emplacements de l'inventaire
     //public bool[] inventaireTab;
 
-    //objets interactifs
-    public Objets cleCoffre;
-    //public Objets hache;
-    public Objets scie;
-    //public Objets planche;
-
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -41,15 +41,10 @@ public class Inventaire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cleCoffre.objetPosseder == true)
-        {
-            Debug.Log("j'ai la cle hehe");
-            
-        }
 
     }
 
-    public bool VerificationEtAjout(string nomDeLobjet, Sprite spritDeLobjet)
+    public bool VerificationEtAjout(string nomDeLobjet, Sprite spritDeLobjet, GameObject prefabDeLobjet)
     {
         /* Fonction qui verifie si il reste de la place dans l'inventaire
          * renvoie True si c'est le cas, et false si l'inventaire n'a plus d'emplacement libre
@@ -70,6 +65,7 @@ public class Inventaire : MonoBehaviour
                         //vu que c'est lire, on rajoute l'objet :
                         objetSlot3 = nomDeLobjet;
                         boutonSlot3.sprite = spritDeLobjet;
+                        objectPrefabSlot3 = prefabDeLobjet;
                         return true;        //l'emplacement 3 est libre
                     }
                 }
@@ -78,6 +74,7 @@ public class Inventaire : MonoBehaviour
                     //vu que c'est lire, on rajoute l'objet :
                     objetSlot2 = nomDeLobjet;
                     boutonSlot2.sprite = spritDeLobjet;
+                    objectPrefabSlot2 = prefabDeLobjet;
                     return true;            //l'emplacement 2 est libre
                 }
             }
@@ -86,6 +83,7 @@ public class Inventaire : MonoBehaviour
                 //vu que c'est lire, on rajoute l'objet :
                 objetSlot1 = nomDeLobjet;
                 boutonSlot1.sprite = spritDeLobjet;
+                objectPrefabSlot1 = prefabDeLobjet;
                 return true;                //l'emplacement 1 est libre
             }
         }
@@ -94,6 +92,7 @@ public class Inventaire : MonoBehaviour
             //vu que c'est lire, on rajoute l'objet :
             objetSlot0 = nomDeLobjet;
             boutonSlot0.sprite = spritDeLobjet;
+            objectPrefabSlot0 = prefabDeLobjet;
             return true;                    //l'emplacement 0 libre
         }  
         
@@ -117,7 +116,54 @@ public class Inventaire : MonoBehaviour
         if(objetSlot0 != "" && objetEnMain == false)
         {
             Debug.Log("on a l'objet en main");
-            objetTenus = Instantiate(cleCoffre, mainJoueur.transform).gameObject;
+            objetTenus = Instantiate(objectPrefabSlot0, mainJoueur.transform).gameObject;
+            objetEnMain = true;
+        }
+        else if (objetSlot0 != "" && objetEnMain == true)
+        {
+            Debug.Log("on remet l'objet dans l'inventaire");
+            Destroy(objetTenus);
+            objetEnMain = false;
+        }
+    }
+    public void BoutonSlot1()
+    {
+        if (objetSlot0 != "" && objetEnMain == false)
+        {
+            Debug.Log("on a l'objet en main");
+            objetTenus = Instantiate(objectPrefabSlot1, mainJoueur.transform).gameObject;
+            objetEnMain = true;
+        }
+        else if (objetSlot0 != "" && objetEnMain == true)
+        {
+            Debug.Log("on remet l'objet dans l'inventaire");
+            Destroy(objetTenus);
+            objetEnMain = false;
+        }
+    }
+
+    public void BoutonSlot2()
+    {
+        if (objetSlot0 != "" && objetEnMain == false)
+        {
+            Debug.Log("on a l'objet en main");
+            objetTenus = Instantiate(objectPrefabSlot2, mainJoueur.transform).gameObject;
+            objetEnMain = true;
+        }
+        else if (objetSlot0 != "" && objetEnMain == true)
+        {
+            Debug.Log("on remet l'objet dans l'inventaire");
+            Destroy(objetTenus);
+            objetEnMain = false;
+        }
+    }
+
+    public void BoutonSlot3()
+    {
+        if (objetSlot0 != "" && objetEnMain == false)
+        {
+            Debug.Log("on a l'objet en main");
+            objetTenus = Instantiate(objectPrefabSlot3, mainJoueur.transform).gameObject;
             objetEnMain = true;
         }
         else if (objetSlot0 != "" && objetEnMain == true)

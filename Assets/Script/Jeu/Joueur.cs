@@ -13,8 +13,10 @@ public class Joueur : MonoBehaviour
 
     public LayerMask maskObjet;
     public LayerMask maskPNJ;
+    public LayerMask maskArbre;
     public Camera myCamera;
 
+    public Objets hache;
     void Start()
     {
         //controller = GetComponent<CharacterController>();   
@@ -58,9 +60,14 @@ public class Joueur : MonoBehaviour
                 infoObjet.transform.GetComponent<Objets>().testTosTest();
             }
 
-            else if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoPNJ, 100, maskPNJ))
+            if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoPNJ, 1000000, maskPNJ))
             {
-                infoPNJ.transform.GetComponent<Pnj>().pnjToucher();
+                infoPNJ.transform.GetComponent<PnjPierre>().parlerPNJ();
+            }
+
+            if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoArbre, 1000000, maskPNJ) && hache.objetPosseder == true )
+            {
+                infoPNJ.transform.GetComponent<Arbre>().couperBois();
             }
         }
 

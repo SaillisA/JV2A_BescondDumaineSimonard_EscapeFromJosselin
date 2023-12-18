@@ -10,6 +10,8 @@ public class Objets : MonoBehaviour
     public Sprite objetSprite;
     public string nomObjet = "";
 
+    public GameObject prefabObjet;
+
     public Inventaire barreInventaire;
 
 
@@ -27,7 +29,7 @@ public class Objets : MonoBehaviour
 
     public void testTosTest()
     {
-        if (barreInventaire.VerificationEtAjout(nomObjet, objetSprite) == true)
+        if (barreInventaire.VerificationEtAjout(nomObjet, objetSprite, prefabObjet) == true)
         {
             Debug.Log("un slot d'inventaire est dispo");
             Destroy(objetGameObject);
