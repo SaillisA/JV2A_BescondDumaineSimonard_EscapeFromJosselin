@@ -67,10 +67,11 @@ public class Joueur : MonoBehaviour
                 infoPierre.transform.GetComponent<PnjPierre>().parlerPNJ();
             }
 
+            /*
             if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoOuvrier, 1000000, maskOuvrier))
             {
                 infoOuvrier.transform.GetComponent<PnjOuvrier>().ParlerOuvrier();
-            }
+            }*/
 
             if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoArbre, 1000000, maskArbre) && hacheBool.hacheDonner == true )
             {

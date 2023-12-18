@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +27,9 @@ public class Inventaire : MonoBehaviour
     public string objetSlot1 = "";
     public string objetSlot2 = "";
     public string objetSlot3 = "";
+
+
+
 
     //list pour verifier les emplacements de l'inventaire
     //public bool[] inventaireTab;
@@ -172,5 +176,33 @@ public class Inventaire : MonoBehaviour
             Destroy(objetTenus);
             objetEnMain = false;
         }
+    }
+
+    //Manip pour retirer un item de l'inventaire :
+    //-supprimer le sprite et son string
+    //-supprimer le prefab;
+    public void SupprimerItemSlot0()
+    {
+        objetSlot0 = "";
+        objectPrefabSlot0 = null;
+        boutonSlot0.sprite = null;
+    }
+    public void SupprimerItemSlot1()
+    {
+        objetSlot1 = "";
+        objectPrefabSlot1 = null;
+        boutonSlot1.sprite = null;
+    }
+    public void SupprimerItemSlot2()
+    {
+        objetSlot2 = "";
+        objectPrefabSlot2 = null;
+        boutonSlot2.sprite = null;
+    }
+    public void SupprimerItemSlot3()
+    {
+        objetSlot3 = "";
+        objectPrefabSlot3 = null;
+        boutonSlot3.sprite = null;
     }
 }
