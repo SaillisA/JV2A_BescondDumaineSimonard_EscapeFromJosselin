@@ -1,0 +1,7 @@
+3D:
+- pelle ?
+- doloir pour poutres
+
+
+texturing:
+- 
