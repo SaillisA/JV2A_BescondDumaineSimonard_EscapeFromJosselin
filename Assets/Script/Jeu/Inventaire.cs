@@ -120,7 +120,7 @@ public class Inventaire : MonoBehaviour
         if(objetSlot0 != "" && objetEnMain == false)
         {
             Debug.Log("on a l'objet en main");
-            objetTenus = Instantiate(objectPrefabSlot0, mainJoueur.transform).gameObject;
+            objetTenus = Instantiate(objectPrefabSlot0, mainJoueur.transform);
             objetEnMain = true;
         }
         else if (objetSlot0 != "" && objetEnMain == true)
@@ -135,7 +135,7 @@ public class Inventaire : MonoBehaviour
         if (objetSlot0 != "" && objetEnMain == false)
         {
             Debug.Log("on a l'objet en main");
-            objetTenus = Instantiate(objectPrefabSlot1, mainJoueur.transform).gameObject;
+            objetTenus = Instantiate(objectPrefabSlot1, mainJoueur.transform);
             objetEnMain = true;
         }
         else if (objetSlot0 != "" && objetEnMain == true)
@@ -151,7 +151,7 @@ public class Inventaire : MonoBehaviour
         if (objetSlot0 != "" && objetEnMain == false)
         {
             Debug.Log("on a l'objet en main");
-            objetTenus = Instantiate(objectPrefabSlot2, mainJoueur.transform).gameObject;
+            objetTenus = Instantiate(objectPrefabSlot2, mainJoueur.transform);
             objetEnMain = true;
         }
         else if (objetSlot0 != "" && objetEnMain == true)
@@ -167,7 +167,7 @@ public class Inventaire : MonoBehaviour
         if (objetSlot0 != "" && objetEnMain == false)
         {
             Debug.Log("on a l'objet en main");
-            objetTenus = Instantiate(objectPrefabSlot3, mainJoueur.transform).gameObject;
+            objetTenus = Instantiate(objectPrefabSlot3, mainJoueur.transform);
             objetEnMain = true;
         }
         else if (objetSlot0 != "" && objetEnMain == true)

@@ -7,6 +7,7 @@ public class TasDePlanche : MonoBehaviour
 
     public Inventaire barreInventaire;
     public int planchesNecessaires = 3;             //le joueur doit emmener 3 planches;
+    public bool planchesTachesFinis = false;
 
     public PnjOuvrier ouvrier;
     // Start is called before the first frame update
@@ -52,6 +53,7 @@ public class TasDePlanche : MonoBehaviour
         {
             Debug.Log("Tous le bois est déposé");
             ouvrier.ParlerOuvrier();
+            planchesTachesFinis = true;
         }
     }
 }

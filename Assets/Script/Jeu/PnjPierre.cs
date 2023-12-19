@@ -31,7 +31,7 @@ public class PnjPierre : MonoBehaviour
     {
         boutonTexte.gameObject.SetActive(true);
         nomTextePnj.text = "Pierre";
-        textePnj.text = "Tire-au-Oh Tire-au-flanc, tu comptes prendre racine ? Allez, allez on se magne ! Suis-moi!";
+        textePnj.text = "Oh Tire-au-flanc, tu comptes prendre racine ? Allez, allez on se magne ! Suis-moi!";
     }
 
     // Update is called once per frame
@@ -57,11 +57,14 @@ public class PnjPierre : MonoBehaviour
                 textePnj.text = "T’es pas futé gamin. Amènes en 3 au chantier\r\n";
             }
         }
-        if(etape2 == false)
+        if(etape4 == false)
         {
-            if(compteurAppuieSurPnj == 0)
+            if(compteurAppuieSurPnj == 2)
             {
-
+                boutonTexte.gameObject.SetActive(true);
+                nomTextePnj.text = "Pierre";
+                textePnj.text = "Très bien pose là ici";
+                compteurAppuieSurPnj = 3;
             }
         }
 
@@ -78,30 +81,75 @@ public class PnjPierre : MonoBehaviour
             }
         }
     }
+
+    public void DialoguePierreScie()
+    {
+        boutonTexte.gameObject.SetActive(true);
+        nomTextePnj.text = "Pierre";
+        textePnj.text = "Bien joué gamin. Je vais la lui rendre attends-moi là";
+
+        compteurAppuieSurPnj = 0;   //j'ai perdue le compte donc on le remet à 0
+        etape2 = true;
+        etape3 = true;      //les etapes sont terminees
+    }
+
+    public void DialoguePierreFinNiveau()
+    {
+        boutonTexte.gameObject.SetActive(true);
+        nomTextePnj.text = "Pierre";
+        textePnj.text = "Ça suffira pour aujourd'hui.";
+    }
     public void BoutonTextePierre()
     {
-        if(etape0 == false)
+        if (etape0 == false)
         {
             boutonTexte.gameObject.SetActive(false);
             etape0 = true;
+
         }
-        else if(etape1 == false && compteurAppuieSurPnj == 0)
+        else if (etape1 == false && compteurAppuieSurPnj == 0)
         {
             nomTextePnj.text = "Pierre";
             textePnj.text = "Tiens et hâte toi, on doit finir cette palissade avant la tombée de la nuit";
             compteurAppuieSurPnj = 1;
         }
-        else if(etape1 == false && compteurAppuieSurPnj ==1)
+        else if (etape1 == false && compteurAppuieSurPnj == 1)
         {
             DonnerHache();
             compteurAppuieSurPnj = 2;
             boutonTexte.gameObject.SetActive(false);
         }
-        else if(etape1 ==false && compteurAppuieSurPnj == 2)
+        else if (etape1 == false && compteurAppuieSurPnj == 2)
         {
-            etape1= true;
+            etape1 = true;
             compteurAppuieSurPnj = 0;
             boutonTexte.gameObject.SetActive(false);
+        }
+
+        else if (etape4 == false && compteurAppuieSurPnj == 0)
+        {
+            nomTextePnj.text = "Pierre";
+            textePnj.text = " Amène-toi je vais te montrer à quoi sert tout ça. Vas chercher les outils là-bas et rejoins-moi";
+            compteurAppuieSurPnj = 1;
+        }
+        else if (etape4 == false && compteurAppuieSurPnj == 1)
+        {
+            compteurAppuieSurPnj = 2;
+            boutonTexte.gameObject.SetActive(false);
+        }
+        else if (etape4 == false && compteurAppuieSurPnj == 3)
+        {
+            boutonTexte.SetActive(false);
+            etape4 = true;
+            compteurAppuieSurPnj = 0;
+        }
+
+        else if (etape5 == false && compteurAppuieSurPnj == 0)
+        {
+            nomTextePnj.text = "Pierre";
+            textePnj.text = "Malgré ton incompétence tu mérites quand même quelque chose. Tu devrais faire un tour du castel avant la tombée de la nuit";
+            etape5 = true;
+            boutonTexte.gameObject.SetActive (false);
         }
 
     }

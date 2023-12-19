@@ -16,9 +16,11 @@ public class Joueur : MonoBehaviour
     public LayerMask maskOuvrier;
     public LayerMask maskArbre;
     public LayerMask maskTasDePlanches;
+    public LayerMask maskScie;
     public Camera myCamera;
 
     public PnjPierre hacheBool;
+    public TasDePlanche tasPlanche;
     void Start()
     {
         //controller = GetComponent<CharacterController>();   
@@ -79,10 +81,16 @@ public class Joueur : MonoBehaviour
                 infoArbre.transform.GetComponent<Arbre>().couperBois();
             }
 
-            if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoTasPlanche, 1000000, maskTasDePlanches) && hacheBool.hacheDonner == true)
+            if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoTasPlanche, 1000000, maskTasDePlanches))
             {
                 Debug.Log("test toucher planche");
                 infoTasPlanche.transform.GetComponent<TasDePlanche>().DeposerPlanches();
+            }
+
+            if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoScie, 1000000, maskScie) && tasPlanche.planchesTachesFinis == true)
+            {
+                Debug.Log("test toucher scie");
+                infoScie.transform.GetComponent<ScieScript>().TrouverScie();
             }
         }
 
