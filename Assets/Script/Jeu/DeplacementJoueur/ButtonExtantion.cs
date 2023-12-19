@@ -6,6 +6,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(ButtonButBetter))]
 public class ButtonExtantion : MonoBehaviour
 {
+    public bool activeBouton = false;
     private ButtonButBetter better;
     public UnityEvent onStay;
     // Start is called before the first frame update
@@ -19,7 +20,12 @@ public class ButtonExtantion : MonoBehaviour
     {
         if(better.isPressed)
         {
+            activeBouton = true;
             onStay.Invoke();    
+        }
+        else
+        {
+            activeBouton = false;
         }
         
     }

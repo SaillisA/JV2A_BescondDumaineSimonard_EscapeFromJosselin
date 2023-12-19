@@ -6,19 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ButtonButBetter : Button, ISelectHandler, IDeselectHandler
+public class ButtonButBetter : Button
 {
     public bool isPressed => IsPressed();
-    public bool isSelected;
-
-    public void OnSelect(BaseEventData date)
-    {
-        isSelected = true;
-    }
-
-    public void OnDeselect(BaseEventData date)
-    {
-        isSelected = false;
-    }
-
 }

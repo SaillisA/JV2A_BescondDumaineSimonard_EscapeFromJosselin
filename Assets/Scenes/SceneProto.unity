@@ -259,7 +259,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  isSelected: 0
 --- !u!114 &52227549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7edd0489da00246b5a4ee98f606caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeBouton: 0
   onStay:
     m_PersistentCalls:
       m_Calls:
@@ -555,7 +555,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  isSelected: 0
 --- !u!114 &267904301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,6 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7edd0489da00246b5a4ee98f606caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeBouton: 0
   onStay:
     m_PersistentCalls:
       m_Calls:
@@ -2251,7 +2251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scieGameObject: {fileID: 1571583137}
   scieTrouvee: 0
-  pierreParle: {fileID: 0}
+  pierreParle: {fileID: 1880930333}
 --- !u!1 &1652577261
 GameObject:
   m_ObjectHideFlags: 0
@@ -2969,7 +2969,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  isSelected: 0
 --- !u!114 &1846967089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2982,6 +2981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7edd0489da00246b5a4ee98f606caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeBouton: 0
   onStay:
     m_PersistentCalls:
       m_Calls:
@@ -3341,7 +3341,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  isSelected: 0
 --- !u!114 &2017836917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3354,6 +3353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7edd0489da00246b5a4ee98f606caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeBouton: 0
   onStay:
     m_PersistentCalls:
       m_Calls:
@@ -3836,7 +3836,6 @@ GameObject:
   - component: {fileID: 8514400509411165901}
   - component: {fileID: 4045147448230757890}
   - component: {fileID: 7494649206102176755}
-  - component: {fileID: 7167690636179087357}
   - component: {fileID: 8514400509411165902}
   - component: {fileID: 8324604449838882274}
   - component: {fileID: 4722663199962195581}
@@ -4969,32 +4968,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!143 &7167690636179087357
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2052457480725862922}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7187723804105273483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5205,7 +5178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac50f59e11315c498e830c3bd39ed1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vitesseDeplacementJoueur: 4.37
+  vitesseDeplacementJoueur: 0.5
   joueur: {fileID: 0}
   maskObjet:
     serializedVersion: 2
@@ -5228,6 +5201,10 @@ MonoBehaviour:
   myCamera: {fileID: 6663703349245933657}
   hacheBool: {fileID: 1880930333}
   tasPlanche: {fileID: 1074569967}
+  boutonDeplacement1: {fileID: 1846967089}
+  boutonDeplacement2: {fileID: 267904301}
+  boutonDeplacement3: {fileID: 52227549}
+  boutonDaplacement4: {fileID: 2017836917}
 --- !u!33 &8514400509411165901
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5244,8 +5221,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052457480725862922}
   serializedVersion: 4
-  m_Mass: 100
-  m_Drag: 100
+  m_Mass: 10
+  m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}

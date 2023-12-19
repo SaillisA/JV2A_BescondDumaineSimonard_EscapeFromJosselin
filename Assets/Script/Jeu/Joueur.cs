@@ -19,6 +19,14 @@ public class Joueur : MonoBehaviour
 
     public PnjPierre hacheBool;
     public TasDePlanche tasPlanche;
+
+    public ButtonExtantion boutonDeplacement1;
+    public ButtonExtantion boutonDeplacement2;
+    public ButtonExtantion boutonDeplacement3;
+    public ButtonExtantion boutonDaplacement4;
+
+
+
     void Start()
     {
         joueur = GetComponent<Rigidbody>();
@@ -26,6 +34,12 @@ public class Joueur : MonoBehaviour
 
     void Update()
     {
+
+        if(boutonDeplacement1.activeBouton == false && boutonDeplacement2.activeBouton == false && boutonDeplacement3.activeBouton == false && boutonDaplacement4.activeBouton == false)
+        {
+            joueur.velocity = transform.right * 0.0f;
+        }
+
         //Recuperer un objet
         if (Input.touchCount > 0)
         {
@@ -71,23 +85,39 @@ public class Joueur : MonoBehaviour
 
     public void DeplacementDroite()
     {
-        Debug.Log("coucou");
-        joueur.velocity = transform.right * vitesseDeplacementJoueur;
+        if(boutonDeplacement1 == true)
+        {
+            Debug.Log("coucou");
+            joueur.velocity = transform.right * vitesseDeplacementJoueur;
+        }
+        
     }
     public void DeplacementGauche()
     {
-        Debug.Log("coucou");
-        joueur.velocity = transform.right * (-vitesseDeplacementJoueur);
+        if(boutonDeplacement2 == true)
+        {
+            Debug.Log("coucou");
+            joueur.velocity = transform.right * (-vitesseDeplacementJoueur);
+        }
+        
     }
     public void DeplacementDevant()
     {
-        Debug.Log("coucou");
-        joueur.velocity = transform.forward * vitesseDeplacementJoueur;
+        if (boutonDeplacement3)
+        {
+            Debug.Log("coucou");
+            joueur.velocity = transform.forward * vitesseDeplacementJoueur;
+        }
+            
     }
     public void DeplacementDerriere()
     {
-        Debug.Log("coucou");
-        joueur.velocity = transform.forward * (-vitesseDeplacementJoueur);
+        if (boutonDaplacement4)
+        {
+            Debug.Log("coucou");
+            joueur.velocity = transform.forward * (-vitesseDeplacementJoueur);
+        }
+        
     }
     public void OuvrirMenuPause()
     {

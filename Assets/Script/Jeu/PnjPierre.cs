@@ -57,7 +57,8 @@ public class PnjPierre : MonoBehaviour
                 textePnj.text = "T’es pas futé gamin. Amènes en 3 au chantier\r\n";
             }
         }
-        if(etape4 == false)
+
+        else if(etape4 == false)
         {
             if(compteurAppuieSurPnj == 2)
             {
