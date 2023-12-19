@@ -15,6 +15,8 @@ public class Joueur : MonoBehaviour
     public LayerMask maskArbre;
     public LayerMask maskTasDePlanches;
     public LayerMask maskScie;
+    public LayerMask maskPorte;
+    public LayerMask maskEmplacementPalissade;
 
     public LayerMask maskSol;
     public AnimationCurve animCurve;
@@ -83,6 +85,18 @@ public class Joueur : MonoBehaviour
             {
                 Debug.Log("test toucher scie");
                 infoScie.transform.GetComponent<ScieScript>().TrouverScie();
+            }
+
+            if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoPorte, 1000000, maskPorte))
+            {
+                Debug.Log("test toucher porte");
+                infoPorte.transform.GetComponent<ScriptPorte>().FinJeuPorte();
+            }
+
+            if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoPalissade, 1000000, maskEmplacementPalissade))
+            {
+                Debug.Log("test toucher porte");
+                infoPalissade.transform.GetComponent<ScriptPorte>().FinJeuPorte();
             }
         }
 
