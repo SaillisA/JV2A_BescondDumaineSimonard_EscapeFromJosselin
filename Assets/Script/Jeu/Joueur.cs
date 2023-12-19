@@ -24,7 +24,7 @@ public class Joueur : MonoBehaviour
 
     public Camera myCamera;
 
-    public PnjPierre hacheBool;
+    public PnjPierre pierre;
     public TasDePlanche tasPlanche;
 
     public ButtonExtantion boutonDeplacement1;
@@ -67,7 +67,7 @@ public class Joueur : MonoBehaviour
                 infoOuvrier.transform.GetComponent<PnjOuvrier>().ParlerOuvrier();
             }*/
 
-            if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoArbre, 1000000, maskArbre) && hacheBool.hacheDonner == true )
+            if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoArbre, 1000000, maskArbre) && pierre.hacheDonner == true )
             {
                 Debug.Log("test toucher arbre");
                 infoArbre.transform.GetComponent<Arbre>().couperBois();
@@ -93,8 +93,8 @@ public class Joueur : MonoBehaviour
 
             if (Physics.Raycast(myCamera.transform.position, touchPosInWorld - myCamera.transform.position, out var infoPalissade, 1000000, maskEmplacementPalissade))
             {
-                Debug.Log("test toucher porte");
-                infoPalissade.transform.GetComponent<ScriptPorte>().FinJeuPorte();
+                Debug.Log("test construction Palissade");
+                infoPalissade.transform.GetComponent<ScriptFuturPalissade>().ConstruirePalissade();
             }
         }
 
