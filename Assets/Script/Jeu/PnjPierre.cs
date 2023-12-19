@@ -27,6 +27,8 @@ public class PnjPierre : MonoBehaviour
     public bool etape4 = false;             //Chercher les outils
     public bool etape5 = false;             //Monter la palissade      
 
+    public bool finaleEtape = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -100,7 +102,9 @@ public class PnjPierre : MonoBehaviour
         boutonTexte.gameObject.SetActive(true);
         nomTextePnj.text = "Pierre";
         textePnj.text = "Ça suffira pour aujourd'hui.";
+        compteurAppuieSurPnj = 1;
     }
+
     public void BoutonTextePierre()
     {
         if (etape0 == false)
@@ -109,6 +113,7 @@ public class PnjPierre : MonoBehaviour
             etape0 = true;
 
         }
+
         else if (etape1 == false && compteurAppuieSurPnj == 0)
         {
             nomTextePnj.text = "Pierre";
@@ -146,13 +151,17 @@ public class PnjPierre : MonoBehaviour
             compteurAppuieSurPnj = 0;
         }
 
-        else if (etape5 == false && compteurAppuieSurPnj == 0)
+        else if (etape5 == false && compteurAppuieSurPnj == 1)
         {
             nomTextePnj.text = "Pierre";
             textePnj.text = "Malgré ton incompétence tu mérites quand même quelque chose. Tu devrais faire un tour du castel avant la tombée de la nuit";
+            compteurAppuieSurPnj = 2;
+        }
+        else if(etape5 == false && compteurAppuieSurPnj == 2)
+        {
             etape5 = true;
             finDuJeu = true;
-            boutonTexte.gameObject.SetActive (false);
+            boutonTexte.gameObject.SetActive(false);
         }
 
     }
