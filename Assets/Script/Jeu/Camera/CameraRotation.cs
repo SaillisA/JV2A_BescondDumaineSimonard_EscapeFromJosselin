@@ -10,12 +10,14 @@ public class CameraRotation : MonoBehaviour
     [SerializeField] private Transform joueurCorps;
     public Vector2 axesBloquer;
 
+    public PreloadDonnes donnes;
     public float sensibilite = 0.1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        donnes = FindObjectOfType<PreloadDonnes>();
+        sensibilite = donnes.sensibilite;
     }
 
     // Update is called once per frame
