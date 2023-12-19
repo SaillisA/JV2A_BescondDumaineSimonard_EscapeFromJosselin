@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Joueur : MonoBehaviour
 {
     public float vitesseDeplacementJoueur = 0.5f;
     public Rigidbody joueur;
-
-
-    //private CharacterController controller;
-
+    //public ButtonExtantion boutonPresser;
 
     public LayerMask maskObjet;
     public LayerMask maskPierre;
@@ -23,37 +21,11 @@ public class Joueur : MonoBehaviour
     public TasDePlanche tasPlanche;
     void Start()
     {
-        //controller = GetComponent<CharacterController>();   
+        joueur = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-
-        if(Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.position = Vector3.right * vitesseDeplacementJoueur;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.position = Vector3.left * vitesseDeplacementJoueur;
-
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.position = Vector3.forward * vitesseDeplacementJoueur;
-
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.position = Vector3.back * vitesseDeplacementJoueur;
-
-        }
-
-        //deplacement
-        // Vector3 Move = transform.right * joystickDeplacement.Horizontal + transform.forward * joystickDeplacement.Vertical;
-        //controller.Move(Move*vitesseDeplacementJoueur*Time.deltaTime);
-
-
         //Recuperer un objet
         if (Input.touchCount > 0)
         {
@@ -95,6 +67,31 @@ public class Joueur : MonoBehaviour
         }
 
 
+    }
+
+    public void DeplacementDroite()
+    {
+        Debug.Log("coucou");
+        joueur.velocity = transform.right * vitesseDeplacementJoueur;
+    }
+    public void DeplacementGauche()
+    {
+        Debug.Log("coucou");
+        joueur.velocity = transform.right * (-vitesseDeplacementJoueur);
+    }
+    public void DeplacementDevant()
+    {
+        Debug.Log("coucou");
+        joueur.velocity = transform.forward * vitesseDeplacementJoueur;
+    }
+    public void DeplacementDerriere()
+    {
+        Debug.Log("coucou");
+        joueur.velocity = transform.forward * (-vitesseDeplacementJoueur);
+    }
+    public void OuvrirMenuPause()
+    {
+        SceneManager.LoadScene("ScenePause");
     }
 
 
