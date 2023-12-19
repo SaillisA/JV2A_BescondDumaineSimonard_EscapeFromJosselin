@@ -12,6 +12,7 @@ public class PnjPierre : MonoBehaviour
     public Objets hachePierre;
     public bool hacheDonner = false;
 
+    public bool finDuJeu = false;
     //texte :
     public GameObject boutonTexte;
     public TextMeshProUGUI textePnj;
@@ -150,6 +151,7 @@ public class PnjPierre : MonoBehaviour
             nomTextePnj.text = "Pierre";
             textePnj.text = "Malgré ton incompétence tu mérites quand même quelque chose. Tu devrais faire un tour du castel avant la tombée de la nuit";
             etape5 = true;
+            finDuJeu = true;
             boutonTexte.gameObject.SetActive (false);
         }
 
