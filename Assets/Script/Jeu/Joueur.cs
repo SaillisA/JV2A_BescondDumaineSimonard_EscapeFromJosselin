@@ -15,6 +15,11 @@ public class Joueur : MonoBehaviour
     public LayerMask maskArbre;
     public LayerMask maskTasDePlanches;
     public LayerMask maskScie;
+
+    public LayerMask maskSol;
+    public AnimationCurve animCurve;
+    public float temps;
+
     public Camera myCamera;
 
     public PnjPierre hacheBool;
@@ -34,6 +39,7 @@ public class Joueur : MonoBehaviour
 
     void Update()
     {
+        SurfaceAlignement();
 
         if(boutonDeplacement1.activeBouton == false && boutonDeplacement2.activeBouton == false && boutonDeplacement3.activeBouton == false && boutonDaplacement4.activeBouton == false)
         {
@@ -122,6 +128,32 @@ public class Joueur : MonoBehaviour
     public void OuvrirMenuPause()
     {
         SceneManager.LoadScene("ScenePause");
+    }
+    
+    public void SurfaceAlignement()
+    {
+        
+        Ray ray = new Ray(transform.position, -transform.up);
+        //RaycastHit info = new RaycastHit;
+        if(Physics.Raycast(ray, out var infoSol, maskSol))
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector3.up, infoSol.normal), animCurve.Evaluate(temps));
+            //transform.rotation = Quaternion.FromToRotation(Vector3.up, infoSol.normal);
+        }
+        
+        
+        /*
+        Ray ray = new Ray(transform.position, -transform.up);
+        //RaycastHit info = new RaycastHit;
+        Quaternion RotationRef = Quaternion.Euler(0, 0, 0);
+            if(Physics.Raycast(ray, out var infoSol, maskSol))
+            {
+                //RotationRef = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector3.up, infoSol.normal), animCurve.Evaluate(temps));
+                RotationRef = Quaternion.FromToRotation(Vector3.up, infoSol.normal);
+
+                transform.rotation = Quaternion.Euler(RotationRef.eulerAngles.x, transform.eulerAngles.y, RotationRef.eulerAngles.z);
+            }
+        */
     }
 
 
