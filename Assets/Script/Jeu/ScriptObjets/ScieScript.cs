@@ -27,7 +27,6 @@ public class ScieScript : MonoBehaviour
             Debug.Log("Scie Trouvée");
             Destroy(scieGameObject);
             scieTrouvee = true;
-
             pierreParle.DialoguePierreScie();
         }
     }
