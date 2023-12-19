@@ -26,11 +26,15 @@ public class Joueur : MonoBehaviour
     public ButtonExtantion boutonDeplacement3;
     public ButtonExtantion boutonDaplacement4;
 
-
+    public GameObject canvasJeu;
+    public GameObject canvasMenuPause;
+    public GameObject canvaParametre;
 
     void Start()
     {
         joueur = GetComponent<Rigidbody>();
+        canvasMenuPause.gameObject.SetActive(false);
+        canvaParametre.gameObject.SetActive(false);
     }
 
     void Update()
@@ -137,5 +141,10 @@ public class Joueur : MonoBehaviour
         SceneManager.LoadScene("ScenePause");
     }
 
+    public void BoutonPause()
+    {
+        canvasJeu.gameObject.SetActive(false);
+        canvasMenuPause.gameObject.SetActive(true);
+    }
 }
 
