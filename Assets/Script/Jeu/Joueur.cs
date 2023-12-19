@@ -41,8 +41,6 @@ public class Joueur : MonoBehaviour
 
     void Update()
     {
-        SurfaceAlignement();
-
         if(boutonDeplacement1.activeBouton == false && boutonDeplacement2.activeBouton == false && boutonDeplacement3.activeBouton == false && boutonDaplacement4.activeBouton == false)
         {
             joueur.velocity = transform.right * 0.0f;
@@ -107,7 +105,7 @@ public class Joueur : MonoBehaviour
     {
         if(boutonDeplacement1 == true)
         {
-            Debug.Log("coucou");
+            //joueur.velocity = new Vector3(transform.right.x, joueur.velocity.y, joueur.velocity.z) * vitesseDeplacementJoueur;
             joueur.velocity = transform.right * vitesseDeplacementJoueur;
         }
         
@@ -116,7 +114,7 @@ public class Joueur : MonoBehaviour
     {
         if(boutonDeplacement2 == true)
         {
-            Debug.Log("coucou");
+            //joueur.velocity = new Vector3(transform.right.x, joueur.velocity.y, joueur.velocity.z) * -vitesseDeplacementJoueur;
             joueur.velocity = transform.right * (-vitesseDeplacementJoueur);
         }
         
@@ -125,7 +123,7 @@ public class Joueur : MonoBehaviour
     {
         if (boutonDeplacement3)
         {
-            Debug.Log("coucou");
+            //joueur.velocity = new Vector3(joueur.velocity.x, joueur.velocity.y, transform.forward.z) * vitesseDeplacementJoueur;
             joueur.velocity = transform.forward * vitesseDeplacementJoueur;
         }
             
@@ -134,7 +132,7 @@ public class Joueur : MonoBehaviour
     {
         if (boutonDaplacement4)
         {
-            Debug.Log("coucou");
+            //joueur.velocity = new Vector3(joueur.velocity.x, joueur.velocity.y, transform.forward.z) * -vitesseDeplacementJoueur;
             joueur.velocity = transform.forward * (-vitesseDeplacementJoueur);
         }
         
@@ -143,10 +141,12 @@ public class Joueur : MonoBehaviour
     {
         SceneManager.LoadScene("ScenePause");
     }
-    
+
+
+     /*
     public void SurfaceAlignement()
     {
-        
+               
         Ray ray = new Ray(transform.position, -transform.up);
         //RaycastHit info = new RaycastHit;
         if(Physics.Raycast(ray, out var infoSol, maskSol))
@@ -154,7 +154,7 @@ public class Joueur : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector3.up, infoSol.normal), animCurve.Evaluate(temps));
             //transform.rotation = Quaternion.FromToRotation(Vector3.up, infoSol.normal);
         }
-        
+        */
         
         /*
         Ray ray = new Ray(transform.position, -transform.up);
@@ -167,9 +167,9 @@ public class Joueur : MonoBehaviour
 
                 transform.rotation = Quaternion.Euler(RotationRef.eulerAngles.x, transform.eulerAngles.y, RotationRef.eulerAngles.z);
             }
-        */
+        
     }
-
+    */
 
 }
 
