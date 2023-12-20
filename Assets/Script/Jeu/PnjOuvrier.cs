@@ -45,7 +45,7 @@ public class PnjOuvrier : MonoBehaviour
         if(dialoguePierre == false)
         {
             nomTextePnj.text = "Pierre";
-            textePnj.text = "On va te la trouver, viens m’aider toi. J'suis persuadé qu'il l'a perdue dans le coin ";
+            textePnj.text = "On va te la trouver, viens m’aider toi. J'suis persuadé qu'il l'a perdue dans le coin. Regarde près des souches.";
             dialoguePierre = true;
         }
         else

@@ -1698,7 +1698,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2107973088}
         m_TargetAssemblyTypeName: ScriptParametre, Assembly-CSharp
-        m_MethodName: changerVolumeMusique
+        m_MethodName: ChangerVolumeMusique
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1800,7 +1800,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2107973088}
         m_TargetAssemblyTypeName: ScriptParametre, Assembly-CSharp
-        m_MethodName: changerVolumeVoix
+        m_MethodName: ChangerVolumeVoix
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3769,7 +3769,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2107973088}
         m_TargetAssemblyTypeName: ScriptParametre, Assembly-CSharp
-        m_MethodName: changerVolumeEffetSonore
+        m_MethodName: ChangerVolumeEffetSonore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3871,7 +3871,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2107973088}
         m_TargetAssemblyTypeName: ScriptParametre, Assembly-CSharp
-        m_MethodName: changerSensibilite
+        m_MethodName: ChangerSensibilite
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

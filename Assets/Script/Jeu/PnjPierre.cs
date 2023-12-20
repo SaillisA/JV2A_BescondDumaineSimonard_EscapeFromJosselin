@@ -34,7 +34,7 @@ public class PnjPierre : MonoBehaviour
     {
         boutonTexte.gameObject.SetActive(true);
         nomTextePnj.text = "Pierre";
-        textePnj.text = "Oh Tire-au-flanc, tu comptes prendre racine ? Allez, allez on se magne ! Suis-moi!";
+        textePnj.text = "Oh Tire-au-flanc, tu comptes prendre racine ? Allez, allez on se magne !";
     }
 
     // Update is called once per frame
@@ -57,7 +57,7 @@ public class PnjPierre : MonoBehaviour
             {
                 boutonTexte.gameObject.SetActive(true);
                 nomTextePnj.text = "Pierre";
-                textePnj.text = "T’es pas futé gamin. Amènes en 3 au chantier\r\n";
+                textePnj.text = "T’es pas futé gamin. Amènes en 3 au tas de planche, près des huttes.";
             }
         }
 
@@ -67,7 +67,7 @@ public class PnjPierre : MonoBehaviour
             {
                 boutonTexte.gameObject.SetActive(true);
                 nomTextePnj.text = "Pierre";
-                textePnj.text = "Très bien pose là ici";
+                textePnj.text = "Très bien, va construire une palissade vers de la motte. ";
                 compteurAppuieSurPnj = 3;
             }
         }
@@ -90,7 +90,7 @@ public class PnjPierre : MonoBehaviour
     {
         boutonTexte.gameObject.SetActive(true);
         nomTextePnj.text = "Pierre";
-        textePnj.text = "Bien joué gamin. Je vais la lui rendre attends-moi là";
+        textePnj.text = "Bien joué gamin. Je vais la lui rendre.";
 
         compteurAppuieSurPnj = 0;   //j'ai perdue le compte donc on le remet à 0
         etape2 = true;
@@ -117,7 +117,7 @@ public class PnjPierre : MonoBehaviour
         else if (etape1 == false && compteurAppuieSurPnj == 0)
         {
             nomTextePnj.text = "Pierre";
-            textePnj.text = "Tiens et hâte toi, on doit finir cette palissade avant la tombée de la nuit";
+            textePnj.text = "Tiens et hâte toi, on doit finir cette palissade avant la tombée de la nuit. Va couper du bois dans la forêt derrière toi.";
             compteurAppuieSurPnj = 1;
         }
         else if (etape1 == false && compteurAppuieSurPnj == 1)
@@ -136,7 +136,7 @@ public class PnjPierre : MonoBehaviour
         else if (etape4 == false && compteurAppuieSurPnj == 0)
         {
             nomTextePnj.text = "Pierre";
-            textePnj.text = " Amène-toi je vais te montrer à quoi sert tout ça. Vas chercher les outils là-bas et rejoins-moi";
+            textePnj.text = "Vas chercher les outils près des huttes, et reviens me voir.";
             compteurAppuieSurPnj = 1;
         }
         else if (etape4 == false && compteurAppuieSurPnj == 1)
@@ -154,7 +154,7 @@ public class PnjPierre : MonoBehaviour
         else if (etape5 == false && compteurAppuieSurPnj == 1)
         {
             nomTextePnj.text = "Pierre";
-            textePnj.text = "Malgré ton incompétence tu mérites quand même quelque chose. Tu devrais faire un tour du castel avant la tombée de la nuit";
+            textePnj.text = "Malgré ton incompétence tu mérites quand même quelque chose. Tu devrais aller à la tour avant la tombée de la nuit";
             compteurAppuieSurPnj = 2;
         }
         else if(etape5 == false && compteurAppuieSurPnj == 2)

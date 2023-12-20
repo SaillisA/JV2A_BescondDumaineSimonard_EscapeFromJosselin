@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScriptPorte : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class ScriptPorte : MonoBehaviour
         if(pierreBool.finDuJeu == true)
         {
             Debug.Log("niveauTerminé");
+            SceneManager.LoadScene("SceneFin");
         }
     }
 }
